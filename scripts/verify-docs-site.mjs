@@ -74,6 +74,12 @@ if (existsSync(file('package.json'))) {
   check('vitepress dev dependency exists', Boolean(pkg.devDependencies?.vitepress))
 }
 
+if (existsSync(file('.gitignore'))) {
+  const gitignore = read('.gitignore')
+  check('gitignore excludes local agent/tooling files', gitignore.includes('.superpowers/') && gitignore.includes('.codex/') && gitignore.includes('.agents/') && gitignore.includes('AGENTS.md'))
+  check('gitignore excludes common secret files', gitignore.includes('.env') && gitignore.includes('*.pem') && gitignore.includes('*.p12') && gitignore.includes('credentials.*'))
+}
+
 if (existsSync(file('docs/.vitepress/config.mjs'))) {
   const config = read('docs/.vitepress/config.mjs')
   check('config title is BAM Addons', config.includes("title: 'BAM Addons'"))

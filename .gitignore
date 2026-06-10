@@ -3,3 +3,24 @@ node_modules/
 docs/.vitepress/cache/
 docs/.vitepress/dist/
 .vitepress-preview.*
+
+# Local tooling and private workspace notes
+.superpowers/
+.codex/
+.agents/
+.cursor/
+.windsurf/
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+
+# Local secrets and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.*
+secrets.*
