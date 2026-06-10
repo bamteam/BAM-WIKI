@@ -221,6 +221,7 @@ if (existsSync(file('.github/workflows/deploy.yml'))) {
   check('workflow uploads VitePress dist', workflow.includes('docs/.vitepress/dist'))
   check('workflow deploys Pages', workflow.includes('actions/deploy-pages@v4'))
   check('workflow has Pages permissions', workflow.includes('pages: write') && workflow.includes('id-token: write'))
+  check('workflow deploys from main branch only', workflow.includes('- main') && !workflow.includes('- master'))
 }
 
 const failed = checks.filter((item) => !item.condition)
