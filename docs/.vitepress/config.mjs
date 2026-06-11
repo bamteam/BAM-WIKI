@@ -23,6 +23,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'BAM Decal IT', link: '/addons/decal-it/' },
+      { text: 'BAM Automat', link: '/addons/automat/' },
       { text: 'Feedback', link: '/feedback' },
       { text: 'GitHub', link: 'https://github.com/bamteam/BAM-WIKI' }
     ],
@@ -49,7 +50,12 @@ export default defineConfig({
           text: 'BAM Automat',
           collapsed: true,
           items: [
-            { text: 'Overview', link: '/addons/automat/' }
+            { text: 'Overview', link: '/addons/automat/' },
+            { text: 'Quick Start', link: '/addons/automat/quick-start' },
+            { text: 'Features', link: '/addons/automat/features' },
+            { text: 'FAQ', link: '/addons/automat/faq' },
+            { text: 'Changelog', link: '/addons/automat/changelog' },
+            { text: 'Feedback', link: '/feedback' }
           ]
         }
       ]

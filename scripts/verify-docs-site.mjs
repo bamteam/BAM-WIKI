@@ -18,6 +18,10 @@ const requiredFiles = [
   'docs/addons/index.md',
   'docs/addons/installation.md',
   'docs/addons/automat/index.md',
+  'docs/addons/automat/quick-start.md',
+  'docs/addons/automat/features.md',
+  'docs/addons/automat/faq.md',
+  'docs/addons/automat/changelog.md',
   'docs/addons/decal-it/index.md',
   'docs/addons/decal-it/installation.md',
   'docs/addons/decal-it/quick-start.md',
@@ -31,6 +35,7 @@ const requiredFiles = [
   'docs/public/images/decal-it/gallery-2.jpg',
   'docs/public/images/decal-it/gallery-3.jpg',
   'docs/public/images/decal-it/.gitkeep',
+  'docs/public/images/automat/.gitkeep',
   'docs/public/videos/decal-it/placement.mp4',
   'docs/public/videos/decal-it/resize.mp4',
   'docs/public/videos/decal-it/topology.mp4',
@@ -85,10 +90,12 @@ if (existsSync(file('docs/.vitepress/config.mjs'))) {
   check('config title is BAM Addons', config.includes("title: 'BAM Addons'"))
   check('config has GitHub Pages dynamic base', config.includes('GITHUB_REPOSITORY') && config.includes('GITHUB_ACTIONS'))
   check('config has Decal IT nav', config.includes("text: 'BAM Decal IT'") && config.includes("link: '/addons/decal-it/'"))
+  check('config has BAM Automat nav', config.includes("text: 'BAM Automat'") && config.includes("link: '/addons/automat/'"))
   check('config has Feedback nav', config.includes("text: 'Feedback'") && config.includes("link: '/feedback'"))
   check('config does not expose Content Guide nav', !config.includes("text: 'Content Guide'"))
   check('config has shared All Addons sidebar', config.includes("text: 'All Addons'") && config.includes("link: '/addons/installation'"))
   check('config has Decal IT sidebar', config.includes("text: 'Quick Start'") && config.includes("text: 'Changelog'"))
+  check('config has BAM Automat sidebar', config.includes("link: '/addons/automat/quick-start'") && config.includes("link: '/addons/automat/features'") && config.includes("link: '/addons/automat/faq'") && config.includes("link: '/addons/automat/changelog'"))
   check('config formats last updated as date only', config.includes('formatOptions') && config.includes("year: 'numeric'") && config.includes("month: 'long'") && config.includes("day: 'numeric'") && !config.includes('timeStyle'))
   check('config uses local search', config.includes("provider: 'local'"))
   check('config uses BAM PNG logo', config.includes("logo: '/images/bam-logo.png'"))
@@ -98,10 +105,11 @@ if (existsSync(file('docs/index.md'))) {
   const home = read('docs/index.md')
   check('home brands BAM Addons', home.includes('BAM Addons'))
   check('home links Decal IT docs', home.includes('addons/decal-it/'))
+  check('home links BAM Automat docs', home.includes('addons/automat/'))
   check('home uses BAM PNG hero logo', home.includes('src: /images/bam-logo.png'))
   check('home links feedback flow', home.includes('Report a Bug') && home.includes('Feedback & Bugs'))
   check('home uses controlled golden grid content', home.includes('bam-home-grid') && home.includes('bam-home-quick-links'))
-  check('home quick cards are linked', home.includes('href="addons/installation"') && home.includes('href="addons/decal-it/features"') && home.includes('href="feedback"'))
+  check('home quick cards are linked', home.includes('href="addons/installation"') && home.includes('href="addons/"') && home.includes('href="feedback"'))
   check('home does not expose future placeholders', !home.includes('Next BAM Addon') && !home.includes('Shared BAM Notes') && !home.includes('Future'))
   check('home does not expose editing guide', !home.includes('content-guide') && !home.includes('Markdown-first') && !home.includes('Owner controlled') && !home.includes('Add future'))
 }
@@ -124,6 +132,7 @@ if (existsSync(file('docs/.vitepress/theme/components/AddonSwitcher.vue'))) {
 if (existsSync(file('README.md'))) {
   const readme = read('README.md')
   check('README is public-facing', readme.includes('Public reference documentation'))
+  check('README lists documented addons', readme.includes('BAM Decal IT') && readme.includes('BAM Automat'))
   check('README mentions feedback and bug reports', readme.includes('feedback and bug reports for all BAM addons'))
   check('README does not expose setup instructions', !readme.includes('Local Editing') && !readme.includes('npm install') && !readme.includes('do not add collaborators'))
   check('README links the published GitHub Pages site', readme.includes('https://bamteam.github.io/BAM-WIKI/'))
@@ -153,6 +162,43 @@ if (existsSync(file('docs/addons/decal-it/index.md'))) {
   check('Decal IT highlights link to pages', overview.includes('bam-highlight-link') && overview.includes('href="features"') && overview.includes('href="quick-start"') && overview.includes('href="../installation"'))
 }
 
+if (existsSync(file('docs/addons/automat/index.md'))) {
+  const overview = read('docs/addons/automat/index.md')
+  check('Automat overview has active badge and baseline', overview.includes('bam-badge-active') && overview.includes('BAM AutoMat v1.2.1'))
+  check('Automat overview links workflow pages', overview.includes('href="quick-start"') && overview.includes('href="features"') && overview.includes('href="faq"') && overview.includes('href="changelog"'))
+  check('Automat overview links official sources', overview.includes('https://extensions.blender.org/add-ons/bam/') && overview.includes('https://superhivemarket.com/products/bam-blenderautomat'))
+  check('Automat overview avoids external image hotlinks', !overview.includes('assets.superhivemarket.com') && !overview.includes('<img'))
+}
+
+if (existsSync(file('docs/addons/automat/quick-start.md'))) {
+  const quickStart = read('docs/addons/automat/quick-start.md')
+  const quickStartLower = quickStart.toLowerCase()
+  check('Automat quick start documents texture folder workflow', quickStartLower.includes('texture folder') && quickStartLower.includes('create and update materials') && quickStartLower.includes('detected materials in folder'))
+  check('Automat quick start documents BaseColor requirement', quickStartLower.includes('basecolor') && quickStartLower.includes('material candidate'))
+  check('Automat quick start documents Default and ARM presets', quickStart.includes('| Default |') && quickStart.includes('| ARM |'))
+}
+
+if (existsSync(file('docs/addons/automat/features.md'))) {
+  const features = read('docs/addons/automat/features.md')
+  check('Automat features cover AutoMat pipeline', features.includes('## AutoMat Texture Pipeline') && features.includes('Subfolders Scan') && features.includes('Relative Paths'))
+  check('Automat features cover presets and packed maps', features.includes('## Presets and Texture Definitions') && features.includes('ARM packed textures'))
+  check('Automat features cover MaterialManager and overlays', features.includes('## MaterialManager') && features.includes('## Material Overlays'))
+  check('Automat features cover MatsAsset beta', features.includes('## MatsAsset Beta') && features.includes('asset-library workflows'))
+}
+
+if (existsSync(file('docs/addons/automat/faq.md'))) {
+  const faq = read('docs/addons/automat/faq.md')
+  check('Automat FAQ documents Blender version source', faq.includes('v1.2.1') && faq.includes('Blender 4.2 or newer'))
+  check('Automat FAQ documents Cycles guidance', faq.includes('Switch the scene and viewport to Cycles') || faq.includes('switch the scene and viewport to Cycles'))
+  check('Automat FAQ links feedback flow', faq.includes('/feedback') && faq.includes('BAM-WIKI issues page'))
+}
+
+if (existsSync(file('docs/addons/automat/changelog.md'))) {
+  const changelog = read('docs/addons/automat/changelog.md')
+  check('Automat changelog includes current version', changelog.includes('## 1.2.1') && changelog.includes('wiki baseline'))
+  check('Automat changelog includes initial release', changelog.includes('## 1.0.0') && changelog.includes('Initial public release'))
+}
+
 if (existsSync(file('docs/.vitepress/theme/components/BamGallerySlider.vue'))) {
   const slider = read('docs/.vitepress/theme/components/BamGallerySlider.vue')
   check('gallery slider has interactive controls', slider.includes('currentSlide') && slider.includes('nextSlide') && slider.includes('previousSlide') && slider.includes('goToSlide'))
@@ -172,6 +218,7 @@ if (existsSync(file('docs/addons/installation.md'))) {
   const installation = read('docs/addons/installation.md')
   check('shared installation page has All Addons section', installation.includes('## All Addons'))
   check('shared installation page links Blender Extensions pages', installation.includes('https://extensions.blender.org/add-ons/bam/') && installation.includes('https://extensions.blender.org/add-ons/bam-decalit/'))
+  check('shared installation page has addon-specific Blender versions', installation.includes('BAM Automat: Blender 4.2 or newer') && installation.includes('BAM Decal IT: Blender 4.5 or newer'))
 }
 
 if (existsSync(file('docs/addons/decal-it/quick-start.md'))) {

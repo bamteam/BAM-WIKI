@@ -16,7 +16,7 @@ const addons = [
   {
     name: 'BAM Automat',
     href: '/addons/automat/',
-    status: 'Docs hub'
+    status: 'Available'
   }
 ]
 

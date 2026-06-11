@@ -6,7 +6,9 @@ Use this page for the common BAM addon installation flow. Install from the Blend
 
 ## Requirements
 
-- Blender 4.5 or newer.
+- A Blender version supported by the addon you install.
+- BAM Automat: Blender 4.2 or newer, based on the current extension manifest.
+- BAM Decal IT: Blender 4.5 or newer.
 - Internet access for Blender Extensions Store installation, or a local addon archive for manual installation.
 - Permission to install Blender addons on your machine.
 

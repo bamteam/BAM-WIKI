@@ -12,6 +12,9 @@ hero:
       text: Open BAM Decal IT docs
       link: /addons/decal-it/
     - theme: alt
+      text: Open BAM Automat docs
+      link: /addons/automat/
+    - theme: alt
       text: Report a Bug
       link: /feedback
 ---
@@ -22,9 +25,9 @@ hero:
       <h3>Installation</h3>
       <p>Get BAM addons enabled in Blender and confirm they load correctly.</p>
     </a>
-    <a class="bam-card bam-home-card" href="addons/decal-it/features">
-      <h3>Feature Reference</h3>
-      <p>Learn how each documented BAM tool is organized and when to use it.</p>
+    <a class="bam-card bam-home-card" href="addons/">
+      <h3>Addon Reference</h3>
+      <p>Choose the BAM addon documentation section you need.</p>
     </a>
     <a class="bam-card bam-home-card" href="feedback">
       <h3>Feedback & Bugs</h3>
@@ -44,10 +47,10 @@ hero:
       <h3>BAM Decal IT</h3>
       <p>Mesh decal placement, library browsing, projection modes, and Decal Carve workflows.</p>
     </a>
-    <a class="bam-card" href="addons/automat/">
-      <span class="bam-badge">Hub</span>
+    <a class="bam-card bam-card-active" href="addons/automat/">
+      <span class="bam-badge bam-badge-active">Active</span>
       <h3>BAM Automat</h3>
-      <p>Shared BAM Automat documentation entry and feedback routing.</p>
+      <p>Batch material creation, texture presets, MaterialManager, overlays, and asset-library helpers.</p>
     </a>
   </div>
 </div>

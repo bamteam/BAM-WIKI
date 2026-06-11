@@ -4,9 +4,10 @@ Public reference documentation for BAM Blender addons.
 
 This repository is also used for feedback and bug reports for all BAM addons.
 
-## BAM Decal IT
+## Documented Addons
 
-BAM Decal IT is the first documented addon in this wiki.
+- BAM Decal IT
+- BAM Automat
 
 Open the published site:
 

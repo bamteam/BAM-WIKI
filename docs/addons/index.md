@@ -10,10 +10,10 @@ Public documentation for BAM Blender tools.
     <h3>BAM Decal IT</h3>
     <p>Mesh decal placement, projection modes, decal libraries, and Decal Carve workflows.</p>
   </a>
-  <a class="bam-card" href="automat/">
-    <span class="bam-badge">Hub</span>
+  <a class="bam-card bam-card-active" href="automat/">
+    <span class="bam-badge bam-badge-active">Available</span>
     <h3>BAM Automat</h3>
-    <p>Shared documentation entry for BAM Automat updates and feedback routing.</p>
+    <p>Batch material creation, texture presets, MaterialManager, overlays, and asset-library helpers.</p>
   </a>
 </div>
 
