@@ -36,6 +36,16 @@ const requiredFiles = [
   'docs/public/images/decal-it/gallery-3.jpg',
   'docs/public/images/decal-it/.gitkeep',
   'docs/public/images/automat/.gitkeep',
+  'docs/public/images/automat/thumbnail.png',
+  'docs/public/images/automat/thumbnail-256.png',
+  'docs/public/images/automat/story.png',
+  'docs/public/images/automat/batch-install-update.png',
+  'docs/public/images/automat/quick-start-steps.png',
+  'docs/public/images/automat/custom-presets.png',
+  'docs/public/images/automat/colorspace-control.png',
+  'docs/public/images/automat/create-update-filter.png',
+  'docs/public/images/automat/material-manager.jpg',
+  'docs/public/images/automat/show-selected.jpg',
   'docs/public/videos/decal-it/placement.mp4',
   'docs/public/videos/decal-it/resize.mp4',
   'docs/public/videos/decal-it/topology.mp4',
@@ -167,7 +177,8 @@ if (existsSync(file('docs/addons/automat/index.md'))) {
   check('Automat overview has active badge and baseline', overview.includes('bam-badge-active') && overview.includes('BAM AutoMat v1.2.1'))
   check('Automat overview links workflow pages', overview.includes('href="quick-start"') && overview.includes('href="features"') && overview.includes('href="faq"') && overview.includes('href="changelog"'))
   check('Automat overview links official sources', overview.includes('https://extensions.blender.org/add-ons/bam/') && overview.includes('https://superhivemarket.com/products/bam-blenderautomat'))
-  check('Automat overview avoids external image hotlinks', !overview.includes('assets.superhivemarket.com') && !overview.includes('<img'))
+  check('Automat overview uses local base-aware images', overview.includes("import { withBase } from 'vitepress'") && overview.includes("withBase('/images/automat/thumbnail.png')") && overview.includes("withBase('/images/automat/story.png')"))
+  check('Automat overview avoids external image hotlinks', !overview.includes('assets.superhivemarket.com'))
 }
 
 if (existsSync(file('docs/addons/automat/quick-start.md'))) {
@@ -176,6 +187,7 @@ if (existsSync(file('docs/addons/automat/quick-start.md'))) {
   check('Automat quick start documents texture folder workflow', quickStartLower.includes('texture folder') && quickStartLower.includes('create and update materials') && quickStartLower.includes('detected materials in folder'))
   check('Automat quick start documents BaseColor requirement', quickStartLower.includes('basecolor') && quickStartLower.includes('material candidate'))
   check('Automat quick start documents Default and ARM presets', quickStart.includes('| Default |') && quickStart.includes('| ARM |'))
+  check('Automat quick start uses workflow images', quickStart.includes("withBase('/images/automat/batch-install-update.png')") && quickStart.includes("withBase('/images/automat/quick-start-steps.png')"))
 }
 
 if (existsSync(file('docs/addons/automat/features.md'))) {
@@ -184,6 +196,7 @@ if (existsSync(file('docs/addons/automat/features.md'))) {
   check('Automat features cover presets and packed maps', features.includes('## Presets and Texture Definitions') && features.includes('ARM packed textures'))
   check('Automat features cover MaterialManager and overlays', features.includes('## MaterialManager') && features.includes('## Material Overlays'))
   check('Automat features cover MatsAsset beta', features.includes('## MatsAsset Beta') && features.includes('asset-library workflows'))
+  check('Automat features uses feature images', features.includes("withBase('/images/automat/create-update-filter.png')") && features.includes("withBase('/images/automat/custom-presets.png')") && features.includes("withBase('/images/automat/colorspace-control.png')") && features.includes("withBase('/images/automat/material-manager.jpg')") && features.includes("withBase('/images/automat/show-selected.jpg')"))
 }
 
 if (existsSync(file('docs/addons/automat/faq.md'))) {

@@ -1,6 +1,15 @@
 # Quick Start
 
+<script setup>
+import { withBase } from 'vitepress'
+</script>
+
 This workflow creates or updates Blender materials from a folder of texture files.
+
+<figure class="bam-media-card">
+  <img class="bam-feature-image" :src="withBase('/images/automat/batch-install-update.png')" alt="Batch install and update materials from a textures folder with BAM AutoMat">
+  <figcaption>AutoMat is built around batch creation and updates from a texture folder.</figcaption>
+</figure>
 
 ## Before You Start
 
@@ -21,6 +30,11 @@ This workflow creates or updates Blender materials from a folder of texture file
 9. Open `Materials Create/Update filter` and leave checked only the materials you want BAM to process.
 10. Click `Create and update Materials`.
 11. Open `[BAM] MaterialManager` to inspect, preview, assign, replace, or clean the created materials.
+
+<figure class="bam-media-card">
+  <img class="bam-feature-image" :src="withBase('/images/automat/quick-start-steps.png')" alt="BAM AutoMat quick workflow steps">
+  <figcaption>Choose the texture directory, enable subfolder scanning when needed, then create or update only the materials selected in the filter.</figcaption>
+</figure>
 
 ::: tip
 For large batches, switch the scene and viewport to Cycles before processing. This avoids expensive Eevee thumbnail and shader compilation work during mass material creation.

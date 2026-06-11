@@ -1,5 +1,9 @@
 # Features
 
+<script setup>
+import { withBase } from 'vitepress'
+</script>
+
 BAM Automat combines a texture-folder material builder with MaterialManager utilities and viewport overlays. The addon is designed for production scenes where materials need to be created, updated, inspected, assigned, cleaned, and prepared for reuse.
 
 ## AutoMat Texture Pipeline
@@ -15,9 +19,19 @@ Core workflow controls:
 - `Create and update Materials` builds new materials or updates existing ones.
 - `Materials Create/Update filter` lets you process only selected material candidates.
 
+<figure class="bam-media-card">
+  <img class="bam-feature-image" :src="withBase('/images/automat/create-update-filter.png')" alt="BAM AutoMat Materials Create/Update filter">
+  <figcaption>The create/update filter keeps large texture folders manageable by letting you process only the detected materials you actually need.</figcaption>
+</figure>
+
 ## Presets and Texture Definitions
 
 Definitions Presets store suffix, channel, colorspace, and default-value behavior for texture maps.
+
+<figure class="bam-media-card">
+  <img class="bam-feature-image" :src="withBase('/images/automat/custom-presets.png')" alt="BAM AutoMat custom presets and texture map definitions">
+  <figcaption>Presets define suffixes, channel extraction, colorspaces, packed maps, and additional texture-map behavior.</figcaption>
+</figure>
 
 The bundled presets cover:
 
@@ -46,9 +60,19 @@ Supported public controls include:
 - automatic IOR defaults based on material-name keywords, with a general default of `1.45`
 - scene-wide colorspace matching through `Scene ColorSpace Match`
 
+<figure class="bam-media-card">
+  <img class="bam-feature-image" :src="withBase('/images/automat/colorspace-control.png')" alt="BAM AutoMat colorspace controls">
+  <figcaption>Use colorspace definitions and Scene ColorSpace Match to align imported texture maps with your preset settings.</figcaption>
+</figure>
+
 ## MaterialManager
 
 MaterialManager is the scene-material control surface in BAM. It keeps material inspection and common material actions close to the AutoMat workflow.
+
+<figure class="bam-media-card">
+  <img class="bam-feature-image" :src="withBase('/images/automat/material-manager.jpg')" alt="BAM MaterialManager overview">
+  <figcaption>MaterialManager groups reload, sync, assignment, selection, object-count, cleanup, and optimization controls in one panel.</figcaption>
+</figure>
 
 Common actions:
 
@@ -61,6 +85,11 @@ Common actions:
 - open a material in the Shader Editor
 - inspect recent materials and materials on selected objects
 - show material previews
+
+<figure class="bam-media-card">
+  <img class="bam-feature-image" :src="withBase('/images/automat/show-selected.jpg')" alt="BAM MaterialManager show selected materials">
+  <figcaption>Selected-material views keep object materials and quick shader-editor access close to the main material list.</figcaption>
+</figure>
 
 ## Cleanup and Texture Tools
 

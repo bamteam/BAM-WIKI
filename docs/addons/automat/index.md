@@ -1,5 +1,9 @@
 # BAM Automat
 
+<script setup>
+import { withBase } from 'vitepress'
+</script>
+
 <span class="bam-badge bam-badge-active">Active addon</span>
 
 <div class="bam-addon-hero">
@@ -7,11 +11,13 @@
     <p>BAM Automat is a material workflow addon for Blender. It scans texture folders, groups texture sets into material candidates, and creates or updates Blender materials from suffix, channel, and colorspace definitions.</p>
     <p>Use it when you need to build many PBR materials from a texture library, keep material names and texture paths organized, inspect scene materials, assign or replace materials, clean unused material data, and prepare materials for an asset library.</p>
   </div>
-  <div class="bam-callout">
-    <p><strong>Current wiki baseline:</strong> BAM AutoMat v1.2.1</p>
-    <p><strong>Blender:</strong> 4.2 or newer, based on the installed extension manifest.</p>
-    <p><strong>License:</strong> GPL-3.0-or-later.</p>
-  </div>
+  <img class="bam-feature-image" :src="withBase('/images/automat/thumbnail.png')" alt="BAM Blender AutoMat logo">
+</div>
+
+<div class="bam-callout">
+  <p><strong>Current wiki baseline:</strong> BAM AutoMat v1.2.1</p>
+  <p><strong>Blender:</strong> 4.2 or newer, based on the installed extension manifest.</p>
+  <p><strong>License:</strong> GPL-3.0-or-later.</p>
 </div>
 
 ## Highlights
@@ -26,6 +32,13 @@
   <a class="bam-highlight-link" href="../installation">Install BAM from Blender Extensions or a local addon archive.</a>
   <a class="bam-highlight-link" href="https://superhivemarket.com/products/bam-blenderautomat">Open the public Superhive listing.</a>
 </div>
+
+## Story
+
+<figure class="bam-media-card">
+  <img class="bam-feature-image" :src="withBase('/images/automat/story.png')" alt="BAM Blender AutoMat story">
+  <figcaption>BAM was created to make mass material setup in Blender faster and closer to the production workflows artists expect from other DCC tools.</figcaption>
+</figure>
 
 ## Start Here
 
